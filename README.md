@@ -15,3 +15,5 @@ How to run (quick way):
 ```
 mvn tomcat7:run
 ```
+
+open url http://localhost:8080 and login as admin (admin/password)
