@@ -5,7 +5,7 @@ Chat app using spring and react + reflux on frontend
 
 ## Necessary tools
 
-Java, JDK, (tested on 1.8), maven
+Java and JDK (tested on 1.8), maven
 
 Frontend dependencies are handled by Maven Frontend Plugin (https://github.com/eirslett/frontend-maven-plugin), so no need to install node, npm, webpack etc.
 
