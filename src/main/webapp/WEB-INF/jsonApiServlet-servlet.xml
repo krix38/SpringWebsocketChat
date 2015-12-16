@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+ http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-4.0.xsd
+ http://www.springframework.org/schema/mvc
+ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+ http://www.springframework.org/schema/websocket
+ http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd
+ ">
+
+
+    <websocket:message-broker application-destination-prefix="/app">
+        <websocket:stomp-endpoint path="/wsMsgApi" >
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:simple-broker prefix="/msgStream" />
+    </websocket:message-broker>
+
+    <bean id="UserLoggedInEventListenerBean" class="pl.krix.chat.jsonApi.eventListener.UserConnected" />
+    <bean id="UserLoggedOutEventListenerBean" class="pl.krix.chat.jsonApi.eventListener.UserDisconnected" />
+
+    <bean id="WebsocketConnectedUsers" class="pl.krix.chat.jsonApi.wsConnectedUsersMap.ConnectedUsersMapImpl" />
+    <bean id="WebsocketSessions" class="pl.krix.chat.jsonApi.wsSessions.WsSessionImpl" />
+
+    <context:component-scan base-package="pl.krix.chat.jsonApi.controller" />
+
+    <mvc:annotation-driven />
+
+</beans>
