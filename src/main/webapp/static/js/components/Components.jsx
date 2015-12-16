@@ -668,7 +668,7 @@ var LoginForm = React.createClass({
     postData[csrfName] = csrfValue;
     $.ajax({
       url: "login",
-      dataType: "html",
+      dataType: "text",
       type: "POST",
       data: postData,
       success: function(data){

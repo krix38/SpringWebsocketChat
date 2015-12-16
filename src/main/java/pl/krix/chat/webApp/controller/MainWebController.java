@@ -3,6 +3,8 @@ package pl.krix.chat.webApp.controller;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.AuthenticationTrustResolver;
+import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -30,9 +32,23 @@ public class MainWebController implements InitializingBean {
     @Autowired
     MessageService messageService;
 
+    @Autowired
+    AuthenticationTrustResolver authenticationTrustResolver;
+
     @RequestMapping("/")
     public String mainViewHandler(){
         return "mainView";
+    }
+
+    @RequestMapping("/login")
+    public @ResponseBody String login(HttpServletResponse response){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(authenticationTrustResolver.isAnonymous(auth)){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return "login failed";
+        }else {
+            return "login ok";
+        }
     }
 
 

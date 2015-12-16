@@ -48,6 +48,8 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
+    <bean id="AuthenticationTrustResolver" class="org.springframework.security.authentication.AuthenticationTrustResolverImpl" />
+
     <jpa:repositories base-package="pl.krix.chat.dao" />
     <context:component-scan base-package="pl.krix.chat.service" />
 
