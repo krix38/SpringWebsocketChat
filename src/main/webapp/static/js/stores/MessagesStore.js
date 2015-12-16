@@ -25,7 +25,7 @@ var stompClient = null;
               		success: function(objMessageList) {
               			var messageList = [];
               			var message = "";
-              			for (index = 0, len = objMessageList.length; index < len; ++index) {
+              			for (var index = 0, len = objMessageList.length; index < len; ++index) {
               			    message = objMessageList[index];
               			    messageList.push(message.author.login + " : " + message.message);
               			}
