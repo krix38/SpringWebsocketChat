@@ -1,5 +1,18 @@
 *.class
 
+*.iml
+.idea
+
+*.db
+
+target/
+node/
+node_modules/
+etc/
+
+Bundle.min.js
+
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
