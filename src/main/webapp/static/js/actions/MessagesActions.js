@@ -1,5 +1,6 @@
-var Reflux = require("reflux");
 'use strict';
+
+var Reflux = require("reflux");
 
 var MessageActions = Reflux.createActions([
     "sendMessage",

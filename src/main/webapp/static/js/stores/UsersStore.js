@@ -1,12 +1,14 @@
+'use strict';
+
 var Reflux = require("reflux");
 var Actions = require("../actions/UsersActions.js");
 var UsersActions = Actions.UsersActions;
 var stompClient = null;
-    'use strict';
 
 
-    var localStorageKey = "users";
-    var UsersStore = Reflux.createStore({
+
+var localStorageKey = "users";
+var UsersStore = Reflux.createStore({
 
             messagesStore: null,
 

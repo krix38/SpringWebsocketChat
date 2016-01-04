@@ -1,3 +1,5 @@
+'use strict';
+
 var Reflux = require("reflux");
 var React = require("react");
 var ReactDOM = require("react-dom");

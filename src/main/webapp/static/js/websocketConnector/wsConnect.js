@@ -1,3 +1,5 @@
+'use strict';
+
 global.SockJS = require('sockjs-client');
 global.Stomp = require('stompjs');
 

@@ -1,8 +1,10 @@
+'use strict';
+
 var Reflux = require("reflux");
 var Actions = require("../actions/MessagesActions.js");
 var MessageActions = Actions.MessageActions;
 var stompClient = null;
-    'use strict';
+
 
     var localStorageKey = "messages";
     var MessageStore = Reflux.createStore({
